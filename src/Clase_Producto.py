@@ -16,8 +16,12 @@ class Producto:
         """
         self.__id = id
         self.__nombre = nombre
-        self.__precio = precio
-        self.__stock = stock
+
+        try:
+            self.__precio = precio
+            self.__stock = stock
+        except Exception as ex:
+            print(f"ERROR: {ex}")
 
     ### GETTERs Y SETTERs ###
 
