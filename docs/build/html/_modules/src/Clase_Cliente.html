@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html lang="python" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>src.Clase_Cliente &#8212; Tienda Virtual  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=27fed22d" />
+    <script src="../../_static/documentation_options.js?v=d048f138"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for src.Clase_Cliente</h1><div class="highlight"><pre>
+<span></span><span class="c1">### DEFINICIÓN DE CLASES ###</span>
+<div class="viewcode-block" id="Cliente">
+<a class="viewcode-back" href="../../src.html#src.Clase_Cliente.Cliente">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Cliente</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Clase que representa a un cliente con sus datos personales.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">nombre</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">email</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">direccion</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructor de la clase Cliente.</span>
+
+<span class="sd">        :param id: Identificador único del cliente.</span>
+<span class="sd">        :param nombre: Nombre completo del cliente.</span>
+<span class="sd">        :param email: Correo electrónico del cliente.</span>
+<span class="sd">        :param direccion: Dirección física del cliente.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__id</span> <span class="o">=</span> <span class="nb">id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__nombre</span> <span class="o">=</span> <span class="n">nombre</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__email</span> <span class="o">=</span> <span class="n">email</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__direccion</span> <span class="o">=</span> <span class="n">direccion</span>
+
+    <span class="c1">### GETTERs Y SETTERs ###</span>
+
+    <span class="c1"># Atributo ID</span>
+<div class="viewcode-block" id="Cliente.get_id">
+<a class="viewcode-back" href="../../src.html#src.Clase_Cliente.Cliente.get_id">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Devuelve el ID del cliente.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__id</span></div>
+
+
+<div class="viewcode-block" id="Cliente.set_id">
+<a class="viewcode-back" href="../../src.html#src.Clase_Cliente.Cliente.set_id">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nuevo_id</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Establece un nuevo ID para el cliente.</span>
+
+<span class="sd">        :param nuevo_id: Nuevo identificador.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__id</span> <span class="o">=</span> <span class="n">nuevo_id</span></div>
+
+
+    <span class="c1"># Atributo Nombre</span>
+<div class="viewcode-block" id="Cliente.get_nombre">
+<a class="viewcode-back" href="../../src.html#src.Clase_Cliente.Cliente.get_nombre">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_nombre</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Devuelve el nombre del cliente.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nombre</span></div>
+
+
+<div class="viewcode-block" id="Cliente.set_nombre">
+<a class="viewcode-back" href="../../src.html#src.Clase_Cliente.Cliente.set_nombre">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_nombre</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nuevo_nombre</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Establece un nuevo nombre para el cliente.</span>
+
+<span class="sd">        :param nuevo_nombre: Nuevo nombre.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__nombre</span> <span class="o">=</span> <span class="n">nuevo_nombre</span></div>
+
+
+    <span class="c1"># Atributo Email</span>
+<div class="viewcode-block" id="Cliente.get_email">
+<a class="viewcode-back" href="../../src.html#src.Clase_Cliente.Cliente.get_email">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_email</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Devuelve el email del cliente.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__email</span></div>
+
+
+<div class="viewcode-block" id="Cliente.set_email">
+<a class="viewcode-back" href="../../src.html#src.Clase_Cliente.Cliente.set_email">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_email</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nuevo_email</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Establece un nuevo email para el cliente.</span>
+
+<span class="sd">        :param nuevo_email: Nuevo correo electrónico.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__email</span> <span class="o">=</span> <span class="n">nuevo_email</span></div>
+
+
+    <span class="c1"># Atributo Dirección</span>
+<div class="viewcode-block" id="Cliente.get_direccion">
+<a class="viewcode-back" href="../../src.html#src.Clase_Cliente.Cliente.get_direccion">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_direccion</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Devuelve la dirección del cliente.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__direccion</span></div>
+
+
+<div class="viewcode-block" id="Cliente.set_direccion">
+<a class="viewcode-back" href="../../src.html#src.Clase_Cliente.Cliente.set_direccion">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_direccion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nueva_direccion</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Establece una nueva dirección para el cliente.</span>
+
+<span class="sd">        :param nueva_direccion: Nueva dirección.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__direccion</span> <span class="o">=</span> <span class="n">nueva_direccion</span></div>
+
+
+    <span class="c1">### MÉTODOS DE LA CLASE CLIENTE ###</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Devuelve una representación en forma de cadena de los datos del cliente.</span>
+
+<span class="sd">        :return: Cadena formateada con los datos del cliente.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot; - ID: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">get_id</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s2"> - Nombre: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">get_nombre</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s2"> - Email: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">get_email</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s2"> - Dirección: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">get_direccion</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span></div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="c1">### INSTANCIAS DE CLASE ###</span>
+
+    <span class="c1"># Se crea un objeto Cliente con sus atributos.</span>
+    <span class="n">cliente</span> <span class="o">=</span> <span class="n">Cliente</span><span class="p">(</span>
+        <span class="s2">&quot;C001&quot;</span><span class="p">,</span> <span class="s2">&quot;Pepe Luis&quot;</span><span class="p">,</span> <span class="s2">&quot;pepeluis2019@gmail.com&quot;</span><span class="p">,</span> <span class="s2">&quot;C/ Cerro Mataero&#39; Chabola 4&quot;</span>
+    <span class="p">)</span>
+
+    <span class="c1">### USO ###</span>
+
+    <span class="c1"># Se imprime la representación en string del cliente.</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">cliente</span><span class="p">)</span>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Tienda Virtual</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">src</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2025, Mohamed Kadi Brikoui.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.2.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
