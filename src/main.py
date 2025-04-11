@@ -1,38 +1,37 @@
 ### LIBRERÍAS ###
 #################
 import os
-# CLASE CLIENTE
+# Importación de clases desde otros módulos
 from Clase_Cliente import Cliente
-# CLASE PRODUCTO
 from Clase_Producto import Producto
-# CLASE PRODUCTODIGITAL
 from Clase_ProductoDigital import ProductoDigital
-# CLASE PEDIDO
 from Clase_Pedido import Pedido
-# CLASE RESEÑA
 from Clase_Reseña import Reseña
 
 ### FUNCIONES ###
 #################
 
 def limpiar_terminal():
+    """Limpia la terminal (solo compatible con UNIX)."""
     os.system("clear")
 
 def pausar_terminal():
+    """Pausa la ejecución del programa hasta que el usuario pulse Enter."""
     input("« Pulse Enter para continuar... »")
 
 ### PROGRAMA PRINCIPAL ###
 ##########################
 
-# LISTA PARA ALMACENAR PRODUCTOS
+# Lista que almacena los productos creados
 lista_productos = []
 
-# DICCIONARIO CLIENTES DONDE LA CLAVE SEA «ID_CLIENTE»
+# Diccionario de clientes con su ID como clave
 diccionario_clientes = {}
 
 while True:
     limpiar_terminal()
 
+    # Menú principal
     print("""
 +++++++++++++++
       MENÚ
@@ -46,7 +45,6 @@ while True:
 """)
 
     opcion = input("Elige una de las opciones: ")
-
     limpiar_terminal()
 
     match opcion:
@@ -56,10 +54,8 @@ while True:
 
         ### GESTIONAR PRODUCTOS ###
         case "1":
-            print("\n*** GESTIONAR PRODUCTOS ***\n")
             while True:
                 limpiar_terminal()
-            
                 print("""
     +++++++++++++++++++++++++++++++
             GESTIONAR PRODUCTOS
@@ -70,50 +66,43 @@ while True:
     2 - LISTAR PRODUCTO/S
     3 - ACTUALIZAR STOCK
     """)
-            
+
                 opcion = input("Elige una de las opciones: ")
-            
                 limpiar_terminal()
-            
+
                 match opcion:
                     case "0":
                         break
 
                     case "1":
-                        print("\n*** AÑADIR PRODUCTO ***\n")
-
+                        # Añadir producto a la lista
                         try:
                             id_producto = input("Introduzca el ID del producto: ")
                             nombre_producto = input("Introduzca el nombre del producto: ")
                             precio_producto = float(input("Introduzca el precio del producto: "))
                             stock_producto = int(input("Introduzca el stock del producto: "))
                             
-
                             producto = Producto(id_producto, nombre_producto, precio_producto, stock_producto)
-
                             lista_productos.append(producto)
 
-                            print("\nProducto agregado correctamente.")
-                            print()
-
+                            print("\nProducto agregado correctamente.\n")
                         except Exception as ex:
                             print(f"Se ha producido un Error de tipo: {type(ex)}")
 
                     case "2":
+                        # Mostrar todos los productos
                         print("\n*** LISTAR PRODUCTO/S ***\n")
                         for product in lista_productos:
                             print(product)
-                        print()
 
                     case "3":
-                        print("\n*** ACTUALIZAR STOCK ***\n")
-                        
+                        # Actualizar stock de un producto
                         try:
+                            print("\n*** ACTUALIZAR STOCK ***\n")
                             for product in lista_productos:
                                 print(f" - ID: {product.get_id()}")
-
+                            
                             id_product = input("\nIntroduzca ID para actualizar stock: ")
-
                             for product in lista_productos:
                                 if id_product == product.get_id():
                                     nuevo_stock = int(input("Introduzca nuevo Stock: "))
@@ -122,23 +111,18 @@ while True:
                             else:
                                 print("\nERROR. ID no encontrado")
 
-                            print()
                         except Exception as ex:
                             print(f"Se ha producido un Error de tipo: {type(ex)}")
-
                     case _:
                         print("ERROR. Introduzca una opción válida.\n")
-            
+
                 pausar_terminal()
             print()
 
-        
-        ### GESTIONAR PRODUCTOS ###
+        ### GESTIONAR CLIENTES ###
         case "2":
-            print("\n*** GESTIONAR CLIENTES ***\n")
             while True:
                 limpiar_terminal()
-            
                 print("""
     +++++++++++++++++++++++++++++++++
             GESTIONAR CLIENTES
@@ -148,49 +132,39 @@ while True:
     1 - AÑADIR CLIENTE/S
     2 - LISTAR CLIENTE/S
     """)
-            
                 opcion = input("Elige una de las opciones: ")
-            
                 limpiar_terminal()
-            
+
                 match opcion:
                     case "0":
                         break
 
                     case "1":
-                        print("\n*** AÑADIR CLIENTE/S ***\n")
-
+                        # Crear nuevo cliente
                         id_cliente = input("Introduzca el ID del cliente: ")
                         nombre_cliente = input("Introduzca el nombre del cliente: ")
                         email_cliente = input("Introduzca el email del cliente: ")
                         direccion_cliente = input("Introduzca la dirección del cliente: ")
 
-                        cliente = Cliente(id_cliente,nombre_cliente, email_cliente, direccion_cliente)
-
+                        cliente = Cliente(id_cliente, nombre_cliente, email_cliente, direccion_cliente)
                         diccionario_clientes[id_cliente] = cliente 
-                        print("\nCliente creado correctamente.")
-                        print()
+                        print("\nCliente creado correctamente.\n")
 
                     case "2":
+                        # Mostrar todos los clientes
                         print("\n*** LISTAR CLIENTE/S ***\n")
-                        print("CLIENTES:\n")
                         for client in diccionario_clientes.values():
                             print(f"{client}\n")
-
-                        print()
                     case _:
                         print("ERROR. Introduzca una opción válida.\n")
-            
+
                 pausar_terminal()
             print()
 
-        
         ### GESTIONAR PEDIDOS ###
         case "3":
-            print("\n*** GESTIONAR PEDIDOS ***\n")
             while True:
                 limpiar_terminal()
-            
                 print("""
     +++++++++++++++++++++++++++++++
             GESTIONAR PEDIDOS
@@ -201,56 +175,47 @@ while True:
     2 - LISTAR PEDIDO/S
     3 - CALCULAR TOTAL
     """)
-            
+
                 opcion = input("Elige una de las opciones: ")
-            
                 limpiar_terminal()
-            
+
                 match opcion:
                     case "0":
                         break
 
                     case "1":
-                        print("\n*** CREAR PEDIDO/S ***\n")
-
+                        # Crear pedido y añadir todos los productos disponibles
                         id_pedido = input("Introduzca ID de pedido: ")
                         fecha_pedido = input("Introduzca fecha del pedido: ")
 
                         pedido = Pedido(id_pedido, cliente, fecha_pedido)
-                        print("\nPedido creado correctamente")
+                        print("\nPedido creado correctamente\n")
                         
                         for products in lista_productos:
                             pedido.set_productos(products)
-                        print()
 
                     case "2":
+                        # Mostrar información del pedido
                         print("\n*** LISTAR PEDIDO/S ***\n")
-                        print("PEDIDO:\n")
-                        
                         print(f" - ID: {id_pedido}\n - Fecha: {fecha_pedido}")
                         print(" - Productos:")
                         for prod in pedido.get_productos():
                             print(f"\t ¬ {prod.get_nombre()}")
-                        print()
 
                     case "3":
-
+                        # Calcular total del pedido
                         print("\n*** CALCULAR TOTAL ***\n")
                         pedido.calcular_total()
-                        print()
                     case _:
                         print("ERROR. Introduzca una opción válida.\n")
-            
+
                 pausar_terminal()
             print()
 
-
         ### GESTIONAR RESEÑAS ###
         case "4":
-            print("\n*** GESTIONAR RESEÑAS ***\n")
             while True:
                 limpiar_terminal()
-            
                 print("""
     +++++++++++++++++++++++++++++++
             GESTIONAR RESEÑAS
@@ -260,44 +225,38 @@ while True:
     1 - AÑADIR RESEÑA/S
     2 - LISTAR RESEÑA/S
     """)
-            
                 opcion = input("Elige una de las opciones: ")
-            
                 limpiar_terminal()
-            
+
                 match opcion:
                     case "0":
                         break
 
                     case "1":
-                        print("\n*** AÑADIR RESEÑA/S ***\n")
-
+                        # Añadir reseña a un producto
                         try:
                             id_reseña = input("Introduzca ID de reseña: ")
                             comentario_reseña = input("Introduzca el comentario de la reseña: ")
                             puntuacion_reseña = int(input("Introduzca la puntuación de la reseña: "))
 
-                            reseña = Reseña(id_reseña,producto, cliente, comentario_reseña, puntuacion_reseña )
-                            print("Reseña añadida correctamente.")    
-                            print()
-
+                            reseña = Reseña(id_reseña, producto, cliente, comentario_reseña, puntuacion_reseña)
+                            print("Reseña añadida correctamente.\n")
                         except Exception as ex:
                             print(f"Se ha producido un Error de tipo: {type(ex)}")
 
                     case "2":
-                        print("\n*** LISTAR RESEÑA/S ***\n")
+                        # Mostrar la reseña
                         try:
+                            print("\n*** LISTAR RESEÑA/S ***\n")
                             print(reseña)
-                            print()
                         except Exception as ex:
                             print(f"Se ha producido un ERROR de tipo {type(ex)}")
-
                     case _:
                         print("ERROR. Introduzca una opción válida.\n")
-            
+
                 pausar_terminal()
             print()
-            
+
         case _:
             print("ERROR. Introduzca una opción válida.\n")
 
